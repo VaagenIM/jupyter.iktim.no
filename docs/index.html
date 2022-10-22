@@ -58,7 +58,7 @@
         let htmlString = '<h1 style="text-align: center; font-size: 3rem; margin-bottom: .5em;"> Jupyter Notebooks </h1>';
         for (let file of data) {
           if (file.path.toLowerCase().endsWith('.ipynb')) {
-            htmlString += `<a href="${file.path}" class="slide">${file.name.substring(0, file.name.length - 6).replace(/-/g, ' ').replace(/^0/, '')}</a>`;
+            htmlString += `<a href="${file.path.replace(/[^\/]+\//, '')}" class="slide">${file.name.substring(0, file.name.length - 6).replace(/-/g, ' ').replace(/^0/, '')}</a>`;
           }
         }
         document.getElementById('slides').innerHTML += htmlString;
